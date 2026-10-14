@@ -1,0 +1,122 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Calistar brand palette, carried over from the original site:
+ *   slate  #34495E  primary
+ *   steel  #455A64  secondary dark surface
+ *   ink    #1C2833  darkest surface (hero, footer)
+ *   amber  #F39C12  accent / calls to action (dark text on it, never amber text on white)
+ */
+:root {
+  --background: #ffffff;
+  --foreground: #18212b;
+  --card: #ffffff;
+  --card-foreground: #18212b;
+  --popover: #ffffff;
+  --popover-foreground: #18212b;
+  --primary: #34495e;
+  --primary-foreground: #ffffff;
+  --secondary: #eef1f4;
+  --secondary-foreground: #1f2d3a;
+  --muted: #f4f6f8;
+  --muted-foreground: #556677;
+  --accent: #eef1f4;
+  --accent-foreground: #1f2d3a;
+  --destructive: #c0392b;
+  --border: #dde3e8;
+  --input: #c9d2da;
+  --ring: #f39c12;
+  --radius: 0.375rem;
+
+  --brand: #f39c12;
+  --brand-hover: #e08e0b;
+  --brand-foreground: #1a1a1a;
+  --ink: #1c2833;
+  --ink-foreground: #ffffff;
+  --steel: #455a64;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-ink: var(--ink);
+  --color-ink-foreground: var(--ink-foreground);
+  --color-steel: var(--steel);
+
+  --font-sans: var(--font-work-sans);
+  --font-heading: var(--font-rajdhani);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans scroll-smooth;
+    scroll-padding-top: 5rem;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-heading font-bold tracking-tight text-balance;
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+/* Centered page column with responsive side gutters. */
+@utility page-container {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 76rem;
+  padding-inline: 1rem;
+  @media (width >= 40rem) {
+    padding-inline: 1.5rem;
+  }
+  @media (width >= 64rem) {
+    padding-inline: 2rem;
+  }
+}
+
+/* Faint blueprint grid used on dark hero bands instead of photo backgrounds. */
+@utility blueprint-grid {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
