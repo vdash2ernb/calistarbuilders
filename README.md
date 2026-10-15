@@ -70,6 +70,10 @@ Images are not resized at request time (there's no server), so add photos alread
 
 A vector (SVG) logo from the client would be better than the PNG. It's on the client question list.
 
+## Preview (GitHub Pages)
+
+Every push to `main` publishes a preview to **https://vdash2ernb.github.io/calistarbuilders/** through `.github/workflows/pages.yml`. The workflow builds with `PAGES_BASE_PATH=/calistarbuilders` so links and assets resolve under the sub-folder. The preview is marked `noindex`, and its canonical URLs point at calistar.builders.
+
 ## Deploying
 
 Upload the contents of `out/` to any static host: Cloudflare Pages, Netlify, GitHub Pages, or regular web hosting (cPanel, a VPS with Nginx or Apache). Hosts that build from Git need two settings: build command `npm run build` and output directory `out`.

@@ -31,6 +31,8 @@ export const metadata: Metadata = {
     locale: "en_US",
   },
   twitter: { card: "summary_large_image" },
+  // Keep preview builds (GitHub Pages) out of search results; canonicals point at the real domain.
+  ...(process.env.NEXT_PUBLIC_BASE_PATH && { robots: { index: false, follow: false } }),
 };
 
 export const viewport: Viewport = {

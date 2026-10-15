@@ -36,7 +36,7 @@ export default function ProjectsPage() {
                 <li key={p.slug} className="overflow-hidden rounded-lg border bg-card">
                   {p.images[0] && (
                     <Image
-                      src={p.images[0].src}
+                      src={`${process.env.NEXT_PUBLIC_BASE_PATH}${p.images[0].src}`}
                       alt={p.images[0].alt}
                       width={800}
                       height={600}
