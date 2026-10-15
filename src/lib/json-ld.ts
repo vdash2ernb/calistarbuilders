@@ -33,7 +33,7 @@ export function organizationJsonLd() {
       name: "Construction management services",
       itemListElement: services.map((s) => ({
         "@type": "Offer",
-        itemOffered: { "@type": "Service", name: s.title, url: `${company.url}/services/${s.slug}` },
+        itemOffered: { "@type": "Service", name: s.title, url: `${company.url}/services/${s.slug}/` },
       })),
     },
   });

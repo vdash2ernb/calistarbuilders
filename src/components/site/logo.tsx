@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { company } from "@/content/company";
-import logo from "../../../public/brand/calistar-logo.png";
+import logo from "../../../public/brand/calistar-logo-128.png";
 
 export function Logo({
   className,

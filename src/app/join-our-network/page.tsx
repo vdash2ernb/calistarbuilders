@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { CheckIcon } from "lucide-react";
-import { NetworkForm } from "@/components/forms/network-form";
+import { CrmForm } from "@/components/site/crm-form";
 import { PageHero } from "@/components/site/sections";
+import { crmForms } from "@/content/crm";
 
 export const metadata: Metadata = {
   title: "Join Our Subcontractor Network",
@@ -37,7 +38,7 @@ export default function JoinPage() {
             <List title="Why join" items={benefits} />
             <List title="What we look for" items={requirements} />
           </div>
-          <NetworkForm />
+          <CrmForm form={crmForms.network} />
         </div>
       </section>
     </>

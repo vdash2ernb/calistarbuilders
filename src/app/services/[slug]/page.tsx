@@ -11,6 +11,9 @@ import {
 import { BrandButton, CtaBand, PageHero, serviceIcons } from "@/components/site/sections";
 import { getService, services } from "@/content/services";
 
+// Only the known services exist; anything else is a 404 (required for static export).
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
 }

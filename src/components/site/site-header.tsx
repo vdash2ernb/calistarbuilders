@@ -1,10 +1,9 @@
-import { Suspense } from "react";
 import Link from "next/link";
 import { PhoneIcon } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { company } from "@/content/company";
-import { DesktopNav, DesktopNavStatic } from "./desktop-nav";
+import { DesktopNav } from "./desktop-nav";
 import { Logo } from "./logo";
 import { MobileNav } from "./mobile-nav";
 
@@ -13,9 +12,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 border-b bg-white/95 backdrop-blur supports-backdrop-filter:bg-white/85">
       <div className="page-container flex h-18 items-center justify-between gap-6">
         <Logo priority />
-        <Suspense fallback={<DesktopNavStatic />}>
-          <DesktopNav />
-        </Suspense>
+        <DesktopNav />
         <div className="flex items-center gap-2">
           <a
             href={company.phoneHref}

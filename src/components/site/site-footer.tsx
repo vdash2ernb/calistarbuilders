@@ -1,4 +1,3 @@
-import { cacheLife } from "next/cache";
 import Link from "next/link";
 import { MailIcon, MapPinIcon, PhoneIcon } from "lucide-react";
 import { company, navLinks } from "@/content/company";
@@ -67,7 +66,7 @@ export function SiteFooter() {
       <div className="border-t border-white/10">
         <div className="page-container flex flex-col gap-2 py-6 text-xs text-white/60 sm:flex-row sm:justify-between">
           <p>
-            © <CopyrightYear /> {company.name}. All rights reserved.
+            © {new Date().getFullYear()} {company.name}. All rights reserved.
           </p>
           <Link href="/privacy" className="hover:text-white">
             Privacy Policy
@@ -76,12 +75,6 @@ export function SiteFooter() {
       </div>
     </footer>
   );
-}
-
-async function CopyrightYear() {
-  "use cache";
-  cacheLife("days");
-  return new Date().getFullYear();
 }
 
 function FooterColumn({ title, children }: { title: string; children: React.ReactNode }) {

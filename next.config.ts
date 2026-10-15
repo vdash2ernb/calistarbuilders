@@ -1,15 +1,13 @@
 import type { NextConfig } from "next";
 
+// Fully static site: `npm run build` writes plain HTML/CSS/JS to `out/`, which can be
+// uploaded to any static host. Forms are embedded from the CRM (src/content/crm.ts).
 const nextConfig: NextConfig = {
-  cacheComponents: true,
-  partialPrefetching: true,
-  poweredByHeader: false,
-  experimental: {
-    serverActions: {
-      // Form attachments are capped at 4 MB (src/lib/forms.ts); leave room for the other fields.
-      bodySizeLimit: "4.5mb",
-    },
-  },
+  output: "export",
+  // Emit /about/index.html instead of /about.html so any host serves clean URLs.
+  trailingSlash: true,
+  // No image server on a static host; images are pre-sized in /public instead.
+  images: { unoptimized: true },
   turbopack: {
     rules: {
       "*.css": {

@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { MailIcon, MapPinIcon, PhoneIcon } from "lucide-react";
-import { QuoteForm } from "@/components/forms/quote-form";
+import { CrmForm } from "@/components/site/crm-form";
 import { PageHero } from "@/components/site/sections";
 import { company } from "@/content/company";
+import { crmForms } from "@/content/crm";
 
 export const metadata: Metadata = {
   title: "Request a Quote",
@@ -76,7 +77,7 @@ export default function ContactPage() {
               </Link>
             </div>
           </div>
-          <QuoteForm />
+          <CrmForm form={crmForms.quote} />
         </div>
       </section>
     </>

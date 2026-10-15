@@ -9,15 +9,7 @@ const linkClass =
 
 export function DesktopNav() {
   const pathname = usePathname();
-  return <NavList isActive={(href) => pathname === href || pathname.startsWith(`${href}/`)} />;
-}
-
-// Rendered as the Suspense fallback while the pathname is unknown during prerendering.
-export function DesktopNavStatic() {
-  return <NavList isActive={() => false} />;
-}
-
-function NavList({ isActive }: { isActive: (href: string) => boolean }) {
+  const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
   return (
     <nav aria-label="Main" className="hidden items-center gap-7 lg:flex">
       {navLinks.map((link) => (

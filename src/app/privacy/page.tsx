@@ -23,7 +23,8 @@ export default function PrivacyPage() {
           <p>
             When you submit a quote request or a subcontractor application, we collect the details you
             provide, such as your name, company, email address, phone number, project information and any
-            files you attach.
+            files you attach. These forms are provided by our customer relationship management (CRM)
+            provider, which stores submissions on our behalf.
           </p>
           <h2>How we use it</h2>
           <p>

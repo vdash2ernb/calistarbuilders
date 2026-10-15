@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Rajdhani, Work_Sans } from "next/font/google";
 import { SiteFooter } from "@/components/site/site-footer";
 import { SiteHeader } from "@/components/site/site-header";
-import { Toaster } from "@/components/ui/sonner";
 import { company } from "@/content/company";
 import { organizationJsonLd } from "@/lib/json-ld";
 import "./globals.css";
@@ -53,7 +52,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
         </main>
         <SiteFooter />
-        <Toaster position="top-center" richColors />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: organizationJsonLd() }}
