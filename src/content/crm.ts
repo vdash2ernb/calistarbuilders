@@ -20,3 +20,13 @@ export const crmForms = {
 } satisfies Record<string, CrmForm>;
 
 export const embedScript: string | null = null;
+
+// SMS opt-in wording for A2P 10DLC (Dialpad) registration. Paste `smsConsent.checkbox`
+// as the label of an OPTIONAL, UNCHECKED checkbox in both CRM forms, with links to
+// /privacy/ and /terms/#sms. The site shows the same text beside each form.
+export const smsConsent = {
+  notice:
+    "CALISTAR Management Company respects your privacy. We use the information you share to respond to your inquiry, keep you informed about your project and provide the services you request. To learn how we collect, use and protect your information, read our Privacy Policy and Terms of Use.",
+  checkbox:
+    "I agree to receive text messages from CALISTAR Management Company about my inquiry, estimates, scheduling, project updates and related services. Message frequency varies. Message and data rates may apply. Reply STOP to opt out at any time or HELP for help. Consent to receive text messages is not a condition of purchase. See our Privacy Policy and SMS Terms & Conditions for details.",
+};

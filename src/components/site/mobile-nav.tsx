@@ -32,35 +32,41 @@ export function MobileNav() {
   return (
     <Sheet open={open} onOpenChange={setOpen} onOpenChangeComplete={onOpenChangeComplete}>
       <SheetTrigger
-        render={<Button variant="ghost" size="icon-lg" className="lg:hidden" aria-label="Open menu" />}
+        render={<Button variant="ghost" size="icon-lg" className="text-white hover:bg-white/10 hover:text-white group-data-[solid=true]:text-ink group-data-[solid=true]:hover:bg-muted lg:hidden" aria-label="Open menu" />}
       >
         <MenuIcon className="size-6" />
       </SheetTrigger>
-      <SheetContent side="right" className="w-[85%] gap-0 p-0">
-        <SheetTitle className="border-b px-6 py-5 font-heading text-xl">Menu</SheetTitle>
-        <nav className="flex flex-col px-3 py-4" aria-label="Mobile">
-          {navLinks.map((link) => (
+      <SheetContent
+        side="right"
+        className="w-[88%] gap-0 border-l-0 bg-ink p-0 text-white [&_[data-slot=sheet-close]]:text-white [&_[data-slot=sheet-close]]:hover:bg-white/10"
+      >
+        <SheetTitle className="px-6 pt-6 pb-2 text-xs font-semibold tracking-[0.25em] text-brand uppercase">
+          Menu
+        </SheetTitle>
+        <nav className="flex flex-col px-6 py-6" aria-label="Mobile">
+          {navLinks.map((link, i) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={(e) => navigate(e, link.href)}
-              className="rounded-md px-3 py-3 text-base font-medium hover:bg-muted"
+              className="flex items-baseline gap-4 py-3 font-heading text-3xl font-semibold text-white/90 transition-colors hover:text-brand"
             >
+              <span className="text-xs font-sans text-white/40 tabular-nums">{String(i + 1).padStart(2, "0")}</span>
               {link.label}
             </Link>
           ))}
         </nav>
-        <div className="mt-auto flex flex-col gap-3 border-t p-6">
+        <div className="mt-auto flex flex-col gap-3 p-6">
           <Link
             href="/contact"
             onClick={(e) => navigate(e, "/contact")}
-            className={cn(buttonVariants({ size: "lg" }), "h-11 bg-brand text-brand-foreground hover:bg-brand-hover")}
+            className={cn(buttonVariants({ size: "lg" }), "h-12 rounded-full bg-brand text-base font-semibold text-brand-foreground hover:bg-brand-hover")}
           >
             Request a Quote
           </Link>
           <a
             href={company.phoneHref}
-            className={cn(buttonVariants({ variant: "outline", size: "lg" }), "h-11")}
+            className={cn(buttonVariants({ variant: "outline", size: "lg" }), "h-12 rounded-full border-white/25 bg-transparent text-base text-white hover:bg-white/10 hover:text-white")}
           >
             <PhoneIcon /> {company.phone}
           </a>

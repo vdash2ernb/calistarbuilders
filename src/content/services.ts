@@ -1,10 +1,13 @@
 // Service pages. Short descriptions are the original site's copy; the longer
 // "included" lists expand on it and should be reviewed with the client.
 
+import type { PhotoName } from "./photos";
+
 export type Service = {
   slug: string;
   title: string;
   icon: "network" | "clipboard" | "blueprint" | "wrench";
+  image: PhotoName;
   summary: string;
   intro: string;
   included: string[];
@@ -17,6 +20,7 @@ export const services: Service[] = [
     slug: "subcontractor-network",
     title: "Vetted Subcontractor Network",
     icon: "network",
+    image: "team-site",
     summary:
       "Access to 5+ licensed, bonded and insured vendors per trade. Every contractor is thoroughly vetted for quality and reliability.",
     intro:
@@ -44,6 +48,7 @@ export const services: Service[] = [
     slug: "project-management",
     title: "Project Management",
     icon: "clipboard",
+    image: "blueprints",
     summary:
       "Expert oversight with nominal fees. We coordinate schedules, manage communications and keep projects on track and on budget.",
     intro:
@@ -67,6 +72,7 @@ export const services: Service[] = [
     slug: "design-build",
     title: "Design-Build & General Contracting",
     icon: "blueprint",
+    image: "modern-home",
     summary:
       "Comprehensive general contracting for custom home builders. From concept to completion, we handle every phase of construction.",
     intro:
@@ -90,6 +96,7 @@ export const services: Service[] = [
     slug: "manufacturer-installations",
     title: "Manufacturer-Certified Installations",
     icon: "wrench",
+    image: "patio-sunset",
     summary:
       "Specialized skilled labor for Belgard, Techo-Bloc, Angelus and many more. Certified installers ensure proper execution.",
     intro:

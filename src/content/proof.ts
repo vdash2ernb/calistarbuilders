@@ -21,5 +21,5 @@ export type Testimonial = {
 // TODO(client): real project photos with type, city and scope.
 export const projects: Project[] = [];
 
-// TODO(client): 3–6 testimonials with permission to publish names.
+// TODO(client): 3 to 6 testimonials with permission to publish names.
 export const testimonials: Testimonial[] = [];

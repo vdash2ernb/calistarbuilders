@@ -86,3 +86,19 @@ export const processSteps = [
     body: "Regular inspections and punch-list follow-through until the work meets spec and you sign off.",
   },
 ] as const;
+
+// Shown in the homepage ticker. TODO(client): match the trades the network actually covers.
+export const trades = [
+  "Framing",
+  "Concrete & Foundations",
+  "Structural Steel",
+  "Roofing",
+  "Electrical",
+  "Plumbing",
+  "HVAC",
+  "Drywall",
+  "Finish Carpentry",
+  "Pavers & Hardscape",
+  "Retaining Walls",
+  "Outdoor Living",
+] as const;

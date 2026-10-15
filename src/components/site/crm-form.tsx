@@ -1,7 +1,5 @@
 import Script from "next/script";
 import { MailIcon, PhoneIcon } from "lucide-react";
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 import { company } from "@/content/company";
 import { embedScript, type CrmForm as CrmFormConfig } from "@/content/crm";
 
@@ -9,26 +7,23 @@ import { embedScript, type CrmForm as CrmFormConfig } from "@/content/crm";
 export function CrmForm({ form }: { form: CrmFormConfig }) {
   if (!form.embedUrl) {
     return (
-      <div className="flex flex-col items-start self-start rounded-lg border bg-card p-8 shadow-sm">
-        <h2 className="text-2xl text-ink">{form.title}</h2>
-        <p className="mt-2 text-muted-foreground">
+      <div className="grain relative isolate overflow-hidden rounded-3xl bg-ink p-10 text-white shadow-2xl sm:p-12">
+        <h2 className="text-4xl leading-[1.02] text-white">{form.title}</h2>
+        <p className="mt-4 text-lg text-white/70">
           Call or email us and we&apos;ll get back to you within one business day.
         </p>
-        <div className="mt-6 flex w-full flex-col gap-3 sm:flex-row">
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           <a
             href={company.phoneHref}
-            className={cn(
-              buttonVariants({ size: "lg" }),
-              "h-12 bg-brand px-6 text-base font-semibold text-brand-foreground hover:bg-brand-hover",
-            )}
+            className="inline-flex h-14 items-center justify-center gap-2 rounded-full bg-brand px-7 text-base font-semibold text-brand-foreground shadow-[0_14px_40px_-12px_rgb(243_156_18/0.75)] transition hover:-translate-y-0.5 hover:bg-brand-hover"
           >
-            <PhoneIcon /> {company.phone}
+            <PhoneIcon className="size-4" aria-hidden /> {company.phone}
           </a>
           <a
             href={`mailto:${company.email}`}
-            className={cn(buttonVariants({ variant: "outline", size: "lg" }), "h-12 px-6 text-base")}
+            className="inline-flex h-14 items-center justify-center gap-2 rounded-full bg-white/10 px-7 text-base font-semibold text-white transition hover:-translate-y-0.5 hover:bg-white hover:text-ink"
           >
-            <MailIcon /> {company.email}
+            <MailIcon className="size-4" aria-hidden /> {company.email}
           </a>
         </div>
       </div>
@@ -36,7 +31,7 @@ export function CrmForm({ form }: { form: CrmFormConfig }) {
   }
 
   return (
-    <div className="overflow-hidden rounded-lg border bg-card shadow-sm">
+    <div className="overflow-hidden rounded-3xl bg-white shadow-2xl">
       <iframe
         src={form.embedUrl}
         title={form.title}

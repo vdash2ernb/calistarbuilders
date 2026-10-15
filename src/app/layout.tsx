@@ -1,5 +1,7 @@
+import { ViewTransition } from "react";
 import type { Metadata, Viewport } from "next";
 import { Rajdhani, Work_Sans } from "next/font/google";
+import { RevealObserver, revealBootScript } from "@/components/motion/reveal-observer";
 import { SiteFooter } from "@/components/site/site-footer";
 import { SiteHeader } from "@/components/site/site-header";
 import { company } from "@/content/company";
@@ -41,7 +43,16 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" data-scroll-behavior="smooth" className={`${workSans.variable} ${rajdhani.variable}`}>
+    <html
+      lang="en"
+      data-scroll-behavior="smooth"
+      className={`${workSans.variable} ${rajdhani.variable}`}
+      suppressHydrationWarning
+    >
+      <head>
+        {/* Adds a class to <html> before first paint; suppressHydrationWarning covers it. */}
+        <script dangerouslySetInnerHTML={{ __html: revealBootScript }} />
+      </head>
       <body className="flex min-h-dvh flex-col">
         <a
           href="#main"
@@ -51,9 +62,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </a>
         <SiteHeader />
         <main id="main" className="flex-1">
-          {children}
+          <ViewTransition default="page">{children}</ViewTransition>
         </main>
         <SiteFooter />
+        <RevealObserver />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: organizationJsonLd() }}

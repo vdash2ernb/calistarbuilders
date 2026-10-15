@@ -5,13 +5,13 @@ import { usePathname } from "next/navigation";
 import { navLinks } from "@/content/company";
 
 const linkClass =
-  "text-sm font-medium text-foreground/80 transition-colors hover:text-foreground aria-[current=page]:text-foreground aria-[current=page]:underline aria-[current=page]:decoration-brand aria-[current=page]:decoration-2 aria-[current=page]:underline-offset-8";
+  "py-2 text-sm font-medium text-white/80 transition-colors duration-300 hover:text-white aria-[current=page]:text-brand group-data-[solid=true]:text-ink/70 group-data-[solid=true]:hover:text-ink group-data-[solid=true]:aria-[current=page]:text-primary";
 
 export function DesktopNav() {
   const pathname = usePathname();
   const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
   return (
-    <nav aria-label="Main" className="hidden items-center gap-7 lg:flex">
+    <nav aria-label="Main" className="hidden items-center gap-8 lg:flex">
       {navLinks.map((link) => (
         <Link
           key={link.href}
